@@ -21,4 +21,19 @@ describe Airport do
     end
 
   end
+
+  context 'traffic control' do
+
+    xit 'a plane cannot land if the airport is full' do
+    end
+
+    context 'weather conditions' do
+
+      xit 'a plane cannot take off when there is a storm brewing' do
+      end
+
+      xit 'a plane cannot land in the middle of a storm' do
+      end
+    end
+  end
 end
