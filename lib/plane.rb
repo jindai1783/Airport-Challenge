@@ -3,7 +3,11 @@ require 'airport'
 class Plane
 
   def initialize
-    self.fly
+    self.airborne!
+  end
+
+  def airborne!
+    @airborne = true
   end
 
   def airborne?
@@ -15,8 +19,9 @@ class Plane
     airport.get_plane(self)
   end
 
-  def fly
+  def fly(airport)
     @airborne = true
+    airport.bye_plane(self)
   end
 
 end

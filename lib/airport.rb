@@ -14,4 +14,8 @@ class Airport
     planes << plane
 	end
 
+	def bye_plane(plane)
+		planes.delete(plane)
+  end
+
 end
