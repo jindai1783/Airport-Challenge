@@ -7,7 +7,7 @@ describe 'Finale' do
   let (:plane) {Plane.new}
   let (:sunny) {double :weather, storm?: false}
 
-  it 'all planes can land and all planes can take off' do
+  it 'All planes can land and take off' do
     planes = Array.new
     10.times {|i| planes[i] = Plane.new}
     10.times {|i| planes[i].land(airport, sunny)}

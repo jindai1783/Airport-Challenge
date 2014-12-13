@@ -26,5 +26,4 @@ class Plane
     airport.bye_plane(self, weather)
     @airborne = true
   end
-
 end

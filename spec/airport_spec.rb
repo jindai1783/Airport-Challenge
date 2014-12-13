@@ -7,35 +7,35 @@ describe Airport do
   let (:sunny) {double :weather, storm?: false}
   let (:stormy) {double :weather, storm?: true}
 
-  context 'taking off and landing' do
-
-    it 'a plane can land' do
+  context 'Taking off and landing' do
+    it 'A plane can land' do
       plane.land(airport, sunny)
       expect(airport.count_planes).to eq 1
     end
 
-    it 'a plane can take off' do
+    it 'A plane can take off' do
       plane.fly(airport, sunny)
       expect(airport.count_planes).to eq 0
     end
 
   end
 
-  context 'traffic control' do
-
-    it 'a plane cannot land if the airport is full' do
-      10.times {plane.land(airport, sunny)}
-      expect{plane.land(airport, sunny)}.to raise_error(RuntimeError, 'Airport is full')
+  context 'ATC' do
+    it 'A plane cannot land when airport is full' do
+      15.times {plane.land(airport, sunny)}
+      expect(airport.count_planes).to eq airport.capacity
     end
 
-    context 'weather conditions' do
-
-      it 'a plane cannot take off when there is a storm brewing' do
-        expect{plane.fly(airport, stormy)}.to raise_error(RuntimeError, 'Storm brewing, no flying please')
+    context 'Weather conditions' do
+      it 'A plane cannot take off in storm' do
+        plane.land(airport, sunny)
+        plane.fly(airport, stormy)
+        expect(airport.count_planes).to eq 1
       end
 
-      it 'a plane cannot land in the middle of a storm' do
-        expect{plane.land(airport, stormy)}.to raise_error(RuntimeError, 'Storm brewing, no landing please')
+      it 'A plane cannot land in storm' do
+        plane.land(airport, stormy)
+        expect(airport.count_planes).to eq 0
       end
     end
   end

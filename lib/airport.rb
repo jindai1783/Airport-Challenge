@@ -20,23 +20,10 @@ class Airport
 	end
 
 	def get_plane(plane, weather)
-    if !full?
-      if !weather.storm?
-        planes << plane
-      else
-        raise 'Storm brewing, no landing please'
-      end
-    else
-      raise 'Airport is full'
-    end
+    planes << plane if !full? && !weather.storm?
 	end
 
 	def bye_plane(plane, weather)
-    if !weather.storm?
-		  planes.delete(plane)
-    else
-      raise 'Storm brewing, no flying please'
-    end
+    planes.delete(plane) if !weather.storm?
   end
-
 end

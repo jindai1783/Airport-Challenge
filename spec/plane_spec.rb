@@ -1,5 +1,5 @@
-require 'plane'
 require 'airport'
+require 'plane'
 
 describe Plane do
 
@@ -7,14 +7,13 @@ describe Plane do
   let (:airport) {Airport.new}
   let (:sunny) {double :weather, storm?: false}
 
-  it 'has a flying status when created' do
+  it 'A plane is airborne when created' do
     expect(plane.airborne?).to eq true
   end
 
-  it 'has a flying status when in the air' do
+  it 'A plane is airborne when in air' do
     plane.land(airport, sunny)
     plane.fly(airport, sunny)
     expect(plane.airborne?).to eq true
   end
-
 end
