@@ -24,7 +24,11 @@ describe Airport do
 
   context 'traffic control' do
 
-    xit 'a plane cannot land if the airport is full' do
+    it 'a plane cannot land if the airport is full' do
+      10.times do
+        plane.land(airport)
+      end
+      expect{plane.land(airport)}.to raise_error(RuntimeError, 'Airport is full')
     end
 
     context 'weather conditions' do

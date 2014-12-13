@@ -6,12 +6,24 @@ class Airport
     @planes ||= []
   end
 
+  def capacity
+    @capacity ||= 10
+  end
+
+  def full?
+    capacity == count_planes
+  end
+
 	def count_planes
     planes.count
 	end
 
 	def get_plane(plane)
-    planes << plane
+    if !full?
+      planes << plane
+    else
+      raise 'Airport is full'
+    end
 	end
 
 	def bye_plane(plane)
