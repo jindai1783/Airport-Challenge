@@ -17,7 +17,6 @@ describe Airport do
       plane.fly(airport, sunny)
       expect(airport.count_planes).to eq 0
     end
-
   end
 
   context 'ATC' do
