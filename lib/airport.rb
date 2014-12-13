@@ -15,15 +15,15 @@ class Airport
     capacity == count_planes
   end
 
-	def count_planes
+  def count_planes
     planes.count
-	end
+  end
 
-	def get_plane(plane, weather)
+  def get_plane(plane, weather)
     planes << plane if !full? && !weather.storm?
-	end
+  end
 
-	def bye_plane(plane, weather)
+  def bye_plane(plane, weather)
     planes.delete(plane) if !weather.storm?
   end
 end
