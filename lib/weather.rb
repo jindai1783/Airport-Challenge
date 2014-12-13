@@ -1,11 +1,7 @@
 class Weather
 
-    def storm?
-    if rand(5) == 0
-      return true
-    else
-      return false
-    end
+  def storm?
+    rand(5) == 0
   end
   
 end

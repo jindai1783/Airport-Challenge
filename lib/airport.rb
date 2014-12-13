@@ -24,7 +24,7 @@ class Airport
       if !weather.storm?
         planes << plane
       else
-        raise'Cannot land in storm'
+        raise 'Storm brewing, no landing please'
       end
     else
       raise 'Airport is full'
@@ -35,7 +35,7 @@ class Airport
     if !weather.storm?
 		  planes.delete(plane)
     else
-      raise 'Storm brewing'
+      raise 'Storm brewing, no flying please'
     end
   end
 

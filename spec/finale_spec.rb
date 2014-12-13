@@ -5,11 +5,7 @@ describe 'Finale' do
 
   let (:airport) {Airport.new}
   let (:plane) {Plane.new}
-  let (:plane_air) {double :plane, airborne?: true}
-  let (:plane_land) {double :plane, airborne?: false}
-  let (:weather) {Weather.new}
   let (:sunny) {double :weather, storm?: false}
-  let (:stormy) {double :weather, storm?: true}
 
   it 'all planes can land and all planes can take off' do
     planes = Array.new
