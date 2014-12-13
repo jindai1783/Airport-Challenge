@@ -1,4 +1,5 @@
 require 'airport'
+require 'weather'
 
 class Plane
 
@@ -14,14 +15,16 @@ class Plane
     @airborne
   end
 
-  def land(airport)
+  def land(airport, weather)
+    weather ||= Weather.new
+    airport.get_plane(self, weather)
     @airborne = false
-    airport.get_plane(self)
   end
 
-  def fly(airport)
+  def fly(airport, weather)
+    weather ||= Weather.new
+    airport.bye_plane(self, weather)
     @airborne = true
-    airport.bye_plane(self)
   end
 
 end

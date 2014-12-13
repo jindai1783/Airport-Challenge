@@ -1,4 +1,5 @@
 require 'plane'
+require 'weather'
 
 class Airport
 
@@ -18,16 +19,24 @@ class Airport
     planes.count
 	end
 
-	def get_plane(plane)
+	def get_plane(plane, weather)
     if !full?
-      planes << plane
+      if !weather.storm?
+        planes << plane
+      else
+        raise'Cannot land in storm'
+      end
     else
       raise 'Airport is full'
     end
 	end
 
-	def bye_plane(plane)
-		planes.delete(plane)
+	def bye_plane(plane, weather)
+    if !weather.storm?
+		  planes.delete(plane)
+    else
+      raise 'Storm brewing'
+    end
   end
 
 end
